@@ -134,7 +134,8 @@ class ContactDetailsPageState extends State<ContactDetailsPage> {
                                   title: Text("Confirm"),
                                   content: Text("Are you sure"),
                                   actions: <Widget>[
-                                    FlatButton(
+                                   
+                                   ElevatedButton(
                                       child: Text("OK"),
                                       onPressed: () async {
                                         var db = DatabaseHelper();
@@ -146,7 +147,7 @@ class ContactDetailsPageState extends State<ContactDetailsPage> {
                                             ));
                                       },
                                     ),
-                                    FlatButton(
+                                   ElevatedButton(
                                       child: Text("Cancel"),
                                       onPressed: () {
                                         Navigator.pop(

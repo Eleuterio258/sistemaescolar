@@ -1,11 +1,9 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:sistema_escolar/helpers/database_helper.dart';
 import 'package:sistema_escolar/models/contact.dart';
+import 'package:sistema_escolar/pages/home_page.dart';
 
-import '../main.dart';
-
+// ignore: must_be_immutable
 class EditPage extends StatefulWidget {
   Contact contact;
 
@@ -45,22 +43,27 @@ class EditPageState extends State<EditPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 TextFormField(
+                  keyboardType: TextInputType.text,
                   decoration: InputDecoration(hintText: "Name"),
                   controller: textEditingControllerName,
                 ),
                 TextFormField(
+                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(hintText: "Phone"),
                   controller: textEditingControllerPhone,
                 ),
                 TextFormField(
+                  keyboardType: TextInputType.text,
                   decoration: InputDecoration(hintText: "Adress"),
                   controller: textEditingControllerAdress,
                 ),
                 TextFormField(
+                  keyboardType: TextInputType.text,
                   decoration: InputDecoration(hintText: "Email"),
                   controller: textEditingControllerEmail,
                 ),
                 TextFormField(
+                  keyboardType: TextInputType.text,
                   decoration: InputDecoration(hintText: "Description"),
                   controller: textEditingControllerDescription,
                   maxLines: 5,
@@ -95,7 +98,7 @@ class EditPageState extends State<EditPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MyApp(),
+                                builder: (context) => HomePage(),
                               ));
                         },
                       ),
@@ -104,16 +107,13 @@ class EditPageState extends State<EditPage> {
                       padding: EdgeInsets.only(left: 5, right: 5),
                     ),
                     Expanded(
-                      
-                      child:
-                      
-                       ElevatedButton(
+                      child: ElevatedButton(
                         child: Text("Cancel"),
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MyApp(),
+                                builder: (context) => HomePage(),
                               ));
                         },
                       ),

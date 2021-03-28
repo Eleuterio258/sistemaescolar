@@ -1,10 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:sistema_escolar/helpers/database_helper.dart';
 import 'package:sistema_escolar/models/contact.dart';
-
-import '../main.dart';
+import 'package:sistema_escolar/pages/home_page.dart';
 
 class AddPage extends StatefulWidget {
   @override
@@ -23,84 +20,89 @@ class AddPageState extends State<AddPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      appBar: AppBar(
-        title: Text("Add Contact"),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(10),
-        child: SingleChildScrollView(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            TextFormField(
-              decoration: InputDecoration(hintText: "Name"),
-              controller: textEditingControllerName,
-            ),
-            TextFormField(
-              decoration: InputDecoration(hintText: "Phone"),
-              controller: textEditingControllerPhone,
-            ),
-            TextFormField(
-              decoration: InputDecoration(hintText: "Adress"),
-              controller: textEditingControllerAdress,
-            ),
-            TextFormField(
-              decoration: InputDecoration(hintText: "Email"),
-              controller: textEditingControllerEmail,
-            ),
-            TextFormField(
-              decoration: InputDecoration(hintText: "Description"),
-              controller: textEditingControllerDescription,
-              maxLines: 5,
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-            ),
-            Row(
+          appBar: AppBar(
+            title: Text("Add Contact"),
+          ),
+          body: Padding(
+            padding: EdgeInsets.all(10),
+            child: SingleChildScrollView(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Expanded(
-                  child: RaisedButton(
-                    child: Text("Save"),
-                    onPressed: () async{
-                      var contact = new Contact(
-                        name: textEditingControllerName.text,
-                        description: textEditingControllerDescription.text,
-                        phone: textEditingControllerPhone.text,
-                        address: textEditingControllerAdress.text,
-                        email: textEditingControllerEmail.text,
-                      );
-                      var db = DatabaseHelper();
-                      await db.create(contact);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MyApp(),
-                          ));
-                    },
-                  ),
+                TextFormField(
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(hintText: "Name"),
+                  controller: textEditingControllerName,
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(hintText: "Phone"),
+                  controller: textEditingControllerPhone,
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(hintText: "Adress"),
+                  controller: textEditingControllerAdress,
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(hintText: "Email"),
+                  controller: textEditingControllerEmail,
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(hintText: "Description"),
+                  controller: textEditingControllerDescription,
+                  maxLines: 5,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 5, right: 5),
+                  padding: EdgeInsets.all(10),
                 ),
-                Expanded(
-                  child: RaisedButton(
-                    child: Text("Cancel"),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MyApp(),
-                          ));
-                    },
-                  ),
-                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: ElevatedButton(
+                        child: Text("Save"),
+                        onPressed: () async {
+                          var contact = new Contact(
+                            name: textEditingControllerName.text,
+                            description: textEditingControllerDescription.text,
+                            phone: textEditingControllerPhone.text,
+                            address: textEditingControllerAdress.text,
+                            email: textEditingControllerEmail.text,
+                          );
+                          var db = DatabaseHelper();
+                          await db.create(contact);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomePage(),
+                              ));
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 5, right: 5),
+                    ),
+                    Expanded(
+                      child: ElevatedButton(
+                        child: Text("Cancel"),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomePage(),
+                              ));
+                        },
+                      ),
+                    ),
+                  ],
+                )
               ],
-            )
-          ],
-        )),
-      ),
-    ));
+            )),
+          ),
+        ));
   }
 }

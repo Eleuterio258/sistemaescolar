@@ -14,12 +14,12 @@ class Contact {
       this.email,
       this.address});
 
-  int get contact_id => id;
-  String get contact_name => name;
-  String get contact_address => address;
-  String get contact_phone => phone;
-  String get contact_description => description;
-  String get contact_email => email;
+  int get contactId => id;
+  String get contactName => name;
+  String get contactAddress => address;
+  String get contactPhone => phone;
+  String get contactDescription => description;
+  String get contactEmail => email;
 
   factory Contact.fromJson(Map<String, dynamic> data) => new Contact(
         id: data["id"],
