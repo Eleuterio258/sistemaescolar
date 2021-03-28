@@ -1,11 +1,11 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:sistema_escolar/pages/edit.dart';
+import 'package:sistema_escolar/pages/crud/edit.dart';
 import 'package:sistema_escolar/helpers/database_helper.dart';
 import 'package:sistema_escolar/models/contact.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 // ignore: must_be_immutable
 class ContactDetailsPage extends StatefulWidget {

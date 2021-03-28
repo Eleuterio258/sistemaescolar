@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sistema_escolar/helpers/database_helper.dart';
 import 'package:sistema_escolar/helpers/synchronization_data.dart';
 import 'package:sistema_escolar/models/contact.dart';
-import 'package:sistema_escolar/pages/add.dart';
-import 'package:sistema_escolar/pages/details.dart';
+import 'package:sistema_escolar/pages/crud/add.dart';
+import 'package:sistema_escolar/pages/crud/details.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-
+import 'package:sistema_escolar/pages/Listar.dart';
 
 
 
@@ -61,6 +61,17 @@ class _HomePageState extends State<HomePage> {
               );
             },
             icon: Icon(Icons.add),
+          ),
+            IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Listar(),
+                ),
+              );
+            },
+            icon: Icon(Icons.no_flash),
           ),
           IconButton(
             onPressed: () async {

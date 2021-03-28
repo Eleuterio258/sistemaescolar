@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sistema_escolar/helpers/database_helper.dart';
 import 'package:sistema_escolar/models/contact.dart';
-import 'package:sistema_escolar/pages/home_page.dart';
+import 'package:sistema_escolar/pages/crud/home_page.dart';
 
 class AddPage extends StatefulWidget {
   @override

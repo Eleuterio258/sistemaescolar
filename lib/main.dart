@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:sistema_escolar/pages/home_page.dart';
+import 'package:sistema_escolar/pages/crud/home_page.dart';
 
 void main() {
   runApp(MyApp());
